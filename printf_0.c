@@ -14,6 +14,7 @@ int _printf(const char *format, ...)
 	va_list ap;
 	int i = 0;
 	char specifier;
+	char *string;
 
 	va_start(ap, format);
 
@@ -35,6 +36,17 @@ int _printf(const char *format, ...)
 				specifier = '%';
 				_putchar(specifier);
 				len++;
+				i++;
+			}
+			else if (format[i] == 's')
+			{
+				string = va_arg(ap, char*);
+				while (*string != '\0')
+				{
+					_putchar(*string);
+					len++;
+					string++;
+				}
 				i++;
 			}
 		}
