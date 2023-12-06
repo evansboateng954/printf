@@ -1,7 +1,7 @@
 #include "main.h"
 #include <unistd.h>
 /**
- * _printf - writes to the standart ouput strem 
+ * _printf - writes to the standart ouput strem
  * based on a given format
  *
  * @format: the format to display the output
@@ -25,6 +25,14 @@ int _printf(const char *format, ...)
 			if (format[i] == 'c')
 			{
 				specifier = va_arg(ap, int);
+				_putchar(specifier);
+				len++;
+				i++;
+			}
+
+			else if (format[i] == '%')
+			{
+				specifier = '%';
 				_putchar(specifier);
 				len++;
 				i++;
